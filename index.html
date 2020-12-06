@@ -3,34 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascript multiplication table</title>
+    <title>Shopping list</title>
+
+    <style>
+        body
+        {
+            display: flex;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #shops
+        {
+            margin: auto;
+            display: flex;
+        }
+        .cont2
+        {
+            margin-top: 160px;
+            padding: 25px;
+            box-shadow: 0px -3px 5px rgb(114, 113, 113);
+
+
+        }
+        h1
+        {
+            color: rgb(12, 59, 245);
+        }
+        ul
+        {
+            text-align: center;
+            padding: 10px;
+
+        }
+        ul li
+        {
+            list-style: none;
+            font-size: 18.5px;
+            color: rgb(39, 39, 39);
+            
+        }
+        #merci
+        {
+            color: rgb(12, 59, 245);
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
+  <div id="shops">
+    <div class="cont2">
+        <h1>List of all your command</h1>
+    <ul id="liste">
 
+    </ul>
+    <p id="merci">Merci pour votre passage!!!</p>
+    </div>
+  </div>
     <script>
-        document.write("<table border='1px'>");
+    const list = document.getElementById('liste');
+    const shopping = [];
 
-        document.write("<tr>");
+    let nonull = true;
 
-        for (i =1; i <= 12; i++)
-        {
-            document.write("<th> { " + i + " } </th>");
-        }
-        for(a=1; a <= 12; a++)
-        {
-           
-            document.write("</tr >")
-            for(b=1; b<=12; b++)
-            {
-                document.write("<td>"+b+"x" + a +"=" + b*a + "</td>")
-            }
-        }
-        document.write("</tr>")
-        document.write("</table>")
+    while( nonull )
+    {
+        let articles = prompt("Add your articles names")
+     if(articles !== 'exit')
+     {
+         shopping.push(articles)
+    
+     }
+     else
+     {
+       nonull = false;
+     }
+
+    }
+   shopping.forEach(affichage);
+
+   function affichage(item)
+   {
+    list.innerHTML += `<li id="listeshop">`+ item +`</li>`;
+   }
 
     </script>
     
-   
 </body>
 </html>
