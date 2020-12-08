@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My clock</title>
+</head>
+<body>
+    <p id='horloge'></p>
+    <p id="date"></p>
+</body>
+<script>
+    let horloge = document.getElementById('horloge');
+    let dateshow = document.getElementById('date');
+    
+     function shoWDateHours()
+     {
+         let date, h , m, s, month, nameday, daydate, year;
+         
+         date = new Date();
+         nameday = date.getDay();
+         daydate = date.getDate();
+         month = date.getMonth();
+         year = date.getFullYear();
+
+         const month1 = ['January', 'Febrary','March', 'April', 'May', 'June', 'July','Aout', 'September','October', 'November', 'December'];
+         const days = ['Sunday','Monday', 'Thursday', 'Wednesday', 'Thuesday','Friday','Saturday'];
+  
+     console.log(days[nameday] + ' ,' + month1[month] + ' ' +  daydate + ' ' + year)
+
+        h = date.getHours();
+        m = date.getMinutes();
+        s = date.getSeconds();
+
+
+        if(h < 10 )
+        {
+           h = '0' + h;
+        }
+        if(m < 10 )
+        {
+           m = '0' + m
+        }
+        if(s < 10 )
+        {
+           s = '0' + s
+        }
+
+        horloge.innerHTML = h + ':' + m + ':' + s ;
+        dateshow.innerHTML =  days[nameday] + ' ,' + month1[month] + ' ' +  daydate + ' ' + year;
+     setTimeout('shoWDateHours()', 1000)
+        
+     }
+
+     shoWDateHours();
+</script>
+</html>
